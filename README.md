@@ -40,8 +40,11 @@ private vendor submodule used only to regenerate that package.
 Canonical flow, run in the target checkout after bumping the generator
 pin:
 
-    # in open-dis-python @ dis7-ng
-    git submodule update --init --recursive
+    # in open-dis-python @ dis7-ng (targeted init: siso-ref-010-python's
+    # own vendor/ mirror is private and only needed to regenerate that
+    # package, so avoid plain --recursive)
+    git submodule update --init
+    git -C submodules/open-dis-python-generator submodule update --init
     PYTHONPATH=submodules/open-dis-python-generator \
         .venv/bin/python -m generator        # writes ./generated (staging only)
 
