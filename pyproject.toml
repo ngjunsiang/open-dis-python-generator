@@ -1,6 +1,6 @@
 [project]
 name = "open-dis-python-generator"
-version = "0.1.0"
+version = "0.1.1"
 description = "DIS 7 code generator for open-dis-python (dis7-ng line): corrected XML + REF-010 → opendis record/bitfield modules"
 authors = [
     {name="ngjunsiang"},

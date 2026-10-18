@@ -1699,14 +1699,14 @@ self.variableTransmitterParameters = [
     },
     "RecordSpecificationElement": {
         "marshalledSize": """prefix = 4 + 4 + 4 + 2 + 2
-return prefix + len(self.recordValues) + self._padTo64(prefix)""",
+return prefix + len(self.recordValues) + self._padTo64(prefix + len(self.recordValues))""",
         "serialize": """outputStream.write_uint32(self.recordID)
 outputStream.write_uint32(self.recordSetSerialNumber)
 outputStream.write_uint32(self.padding)
 outputStream.write_uint16(self.recordLength)
 outputStream.write_uint16(self.recordCount)
 outputStream.write_bytes(self.recordValues)
-padding = self._padTo64(14 + len(self.recordValues))
+padding = self._padTo64(16 + len(self.recordValues))
 if padding:
     outputStream.write_bytes(b"\\x00" * padding)""",
         "parse": """self.recordID = rich_or_int(66, inputStream.read_uint32())
@@ -1716,7 +1716,7 @@ self.recordLength = inputStream.read_uint16()
 self.recordCount = inputStream.read_uint16()
 valueBytes = self.recordLength * self.recordCount // 8
 self.recordValues = inputStream.read_bytes(valueBytes)
-padding = self._padTo64(14 + valueBytes)
+padding = self._padTo64(16 + valueBytes)
 if padding:
     inputStream.read_bytes(padding)""",
     },

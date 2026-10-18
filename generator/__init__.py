@@ -29,4 +29,4 @@ _SISO_SRC = (
 if (_SISO_SRC / "siso_ref010").is_dir():
     sys.path.insert(0, str(_SISO_SRC))
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
