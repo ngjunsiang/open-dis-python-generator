@@ -1,0 +1,6 @@
+[submodule "submodules/open-dis-spec-xml"]
+	path = submodules/open-dis-spec-xml
+	url = https://github.com/ngjunsiang/open-dis-spec-xml.git
+[submodule "submodules/siso-ref-010-python"]
+	path = submodules/siso-ref-010-python
+	url = https://github.com/ngjunsiang/siso-ref-010-python.git

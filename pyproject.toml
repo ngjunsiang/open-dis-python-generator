@@ -1,0 +1,27 @@
+[project]
+name = "open-dis-python-generator"
+version = "0.1.0"
+description = "DIS 7 code generator for open-dis-python (dis7-ng line): corrected XML + REF-010 → opendis record/bitfield modules"
+authors = [
+    {name="ngjunsiang"},
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+license = "BSD-2-Clause"
+repository = 'https://github.com/ngjunsiang/open-dis-python-generator'
+classifiers=[
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Code Generators",
+ ]
+dependencies = []
+
+[tool.poetry]
+packages = [{include = "generator"}]
+
+[tool.poetry.group.dev.dependencies]
+black = ">=24.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
